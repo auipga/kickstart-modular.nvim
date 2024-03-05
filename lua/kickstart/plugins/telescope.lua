@@ -45,7 +45,7 @@ return {
       -- a corresponding preview of the help.
       --
       -- Two important keymaps to use while in telescope are:
-      --  - Insert mode: <c-/>
+      --  - Insert mode: <c-/> (auipga: remapped to <c-h>)
       --  - Normal mode: ?
       --
       -- This opens a window that shows you all of the keymaps for the current
@@ -58,11 +58,16 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          mappings = {
+            i = {
+              -- ['<c-enter>'] = 'to_fuzzy_refine',
+              -- Show mappings for picker actions
+              -- (default: <C-/>) fails with my german dvorak setup
+              ["<C-h>"] = "which_key"
+            }
+          },
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
